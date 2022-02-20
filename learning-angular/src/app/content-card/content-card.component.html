@@ -1,4 +1,20 @@
-<span [innerHTML]="myList.getHtml(0)"></span>
-<span [innerHTML]="myList.getHtml(1)"></span>
-<span [innerHTML]="myList.getHtml(2)"></span>
-<span [innerHTML]="myList.getHtml(3)"></span>
+<h3 class="title">
+    {{ games?.title }}
+</h3>
+<img (click)="imageClicked()" *ngIf="games?.imgURL" class="image" [src]="games?.imgURL">
+<p>
+    {{ games?.description }}
+</p>
+<div class="meta-data">
+    <div class="creator">
+        {{ games?.creator}}
+    </div>
+    <div *ngIf="games?.type" class="games?.type">
+        {{ games?.type }}
+    </div>
+    <div class="tags" *ngIf="games?.tags">
+        <span class="tag" *ngFor="let tag of games?.tags">
+            #{{ tag }}
+        </span>
+    </div>
+</div>
