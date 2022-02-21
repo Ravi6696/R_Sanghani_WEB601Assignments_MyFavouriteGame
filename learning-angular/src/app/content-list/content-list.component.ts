@@ -8,6 +8,8 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentListComponent implements OnInit {
 
+  searchMessage: string = "";
+  searchFlag: boolean = false;
   gamesList: Content[];
   constructor() {
     this.gamesList = [{
@@ -24,7 +26,6 @@ export class ContentListComponent implements OnInit {
       description: "Board game played between two players",
       creator: "India",
       imgURL: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Chess_board_opening_staunton.jpg",
-      type: "Indoor",
       tags: ["BoardGame"," abstractstrategygame"]
     }, {
       id: 2,
@@ -56,12 +57,34 @@ export class ContentListComponent implements OnInit {
       description: "Played between two teams of seven players",
       creator: "India",
       imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYaCgQTsfqIdmi6QSF8Sc8bh_7ihNbRVjCRg&usqp=CAU",
-      type: "Outdoor",
       tags: ["kabaddileague","indiankabaddi"]
+    }, {
+      id: 6,
+      title: "BasketBall",
+      description: "A team sport in which two teams, most commonly of five players each",
+      creator: "James Naismith",
+      imgURL: "https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_90,w_1400/fl_lossy,pg_1/isy0qmbfazbupgmsgpnr/basektball-net",
+      type: "Indoor",
+      tags: ["nbabasketball","basketballgame"]
     }];
   }
 
   ngOnInit(): void {
+  }
+
+  checkForTitle(searchValue: string): void{
+    let searchList = this.gamesList.filter(c => c.title == searchValue);
+    if (searchList.length > 0){
+      this.searchMessage  = "Found the movie!";
+      this.searchFlag = true;
+    }
+    else{
+      this.searchMessage  = "No movie with that title";
+      this.searchFlag = false;
+    }
+  }
+  donothing(){
+
   }
 
 }

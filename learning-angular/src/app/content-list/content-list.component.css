@@ -1,3 +1,6 @@
-/* app-content-card{
-    border: 1px solid #000;
-} */
+.fail{
+    color: red;
+  }
+  .success{
+    color: green;
+  }
