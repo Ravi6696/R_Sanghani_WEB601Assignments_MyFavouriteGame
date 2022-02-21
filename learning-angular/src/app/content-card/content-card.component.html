@@ -1,7 +1,14 @@
 <h3 class="title">
     {{ games?.title }}
 </h3>
-<img (click)="imageClicked()" *ngIf="games?.imgURL" class="image" [src]="games?.imgURL">
+
+<div *ngIf="games?.imgURL; else defaultimgurl">
+    <img (click)="imageClicked()" *ngIf="games?.imgURL" class="image" [src]="games?.imgURL">
+</div>
+
+<ng-template #defaultimgurl>
+    <img src="http://www.onlylondon.properties/application/modules/themes/views/default/assets/images/image-placeholder.png" style="height: 300px; width:300px;" >
+</ng-template>
 <p>
     {{ games?.description }}
 </p>

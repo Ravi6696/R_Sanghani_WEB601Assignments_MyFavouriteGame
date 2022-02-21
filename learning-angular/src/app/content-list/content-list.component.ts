@@ -40,7 +40,7 @@ export class ContentListComponent implements OnInit {
       title: "FootBall",
       description: "Game between two teams to score goal",
       creator: "Ebenezer Cobb Morley",
-      imgURL: "https://www.fondationeczema.org/sites/default/files/2020-07/football-760x614px.jpg",
+      imgURL: "",
       type: "Outdoor",
       tags: ["premierleague","footballplayer"]
     }, {
@@ -56,7 +56,7 @@ export class ContentListComponent implements OnInit {
       title: "Kabbadi",
       description: "Played between two teams of seven players",
       creator: "India",
-      imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYaCgQTsfqIdmi6QSF8Sc8bh_7ihNbRVjCRg&usqp=CAU",
+      imgURL: "",
       tags: ["kabaddileague","indiankabaddi"]
     }, {
       id: 6,
