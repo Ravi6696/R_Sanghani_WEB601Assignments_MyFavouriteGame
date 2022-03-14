@@ -10,15 +10,11 @@ export class ContentCardComponent implements OnInit {
   @Input() games?: Content;
 
   constructor() {
-
+    
+    this.games = { id: 0, title: '', description: '', creator: '', imgURL: '' };
   }
-
-
   ngOnInit(): void {
   }
 
-  imageClicked(): void {
-    console.log("ID: ", this.games?.id, ", Title: ", this.games?.title);
-  }
 
 }

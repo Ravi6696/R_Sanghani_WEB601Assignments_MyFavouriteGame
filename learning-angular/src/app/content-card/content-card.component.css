@@ -34,3 +34,11 @@
     margin: 11px;
     padding: 12px;
 }
+
+.contenthoveraffect {
+    text-decoration: underline;
+}
+
+.tagsbold {
+    font-weight: bold;
+}
