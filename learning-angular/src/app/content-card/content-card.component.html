@@ -3,7 +3,7 @@
 </h3>
 
 <div *ngIf="games?.imgURL; else defaultimgurl">
-    <img (click)="imageClicked()" *ngIf="games?.imgURL" class="image" [src]="games?.imgURL">
+    <img  *ngIf="games?.imgURL" class="image" [src]="games?.imgURL">
 </div>
 
 <ng-template #defaultimgurl>

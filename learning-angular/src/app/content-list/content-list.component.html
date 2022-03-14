@@ -1,20 +1,8 @@
-<div class="search">
-    <input #search>
-    <button (click)="checkForTitle(search.value)">Check For Title</button>
-    <h4 class="success" *ngIf="searchFlag">Title found</h4>
-    <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
-  
-  </div>
-  
-  <app-content-card *ngFor="let item of (gamesList | contentTypeFilter); first as isFirstGamesOnList" [class.first-games]="isFirstGamesOnList"
-      [games]="item" class="notype" [class.found]="item.title == search.value"></app-content-card>
-  
-  <app-content-card *ngFor="let item of (gamesList | contentTypeFilter: 'Outdoor'); first as isFirstGamesOnList" [class.first-games]="isFirstGamesOnList"
-                    [games]="item" class="Outdoor" [class.found]="item.title == search.value"></app-content-card>
-  
-  <app-content-card *ngFor="let item of (gamesList | contentTypeFilter: 'Indoor'); first as isFirstGamesOnList" [class.first-games]="isFirstGamesOnList"
-                    [games]="item" class="Indoor" [class.found]="item.title == search.value"></app-content-card>
-  
+
+<div>
+    <app-content-card *ngFor="let item of bunchOfGames; index as i; last as isLast" [games]="item"
+        [class.is-last]="isLast"></app-content-card>
+</div>
   
 
 
