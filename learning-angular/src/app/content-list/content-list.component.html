@@ -1,11 +1,6 @@
+<app-modify-content-component (newGameEvent)="addGameToList($event)"></app-modify-content-component>
 
 <div>
-    <app-content-card *ngFor="let item of bunchOfGames; index as i; last as isLast" [games]="item"
+    <app-content-card *ngFor="let item of bunchOfGame; index as i; last as isLast" [games]="item"
         [class.is-last]="isLast"></app-content-card>
 </div>
-  
-
-
-
-
-
