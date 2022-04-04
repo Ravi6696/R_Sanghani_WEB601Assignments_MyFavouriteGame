@@ -9,18 +9,27 @@ import { GamesService } from '../services/games.service';
 })
 export class ContentListComponent implements OnInit {
 
-  bunchOfGames: Content[];
-  gallery_id!: number;
-  singleItem:Content[] = [];
+  bunchOfGame: Content[];
+
   constructor(private GamesService: GamesService) {
-    this.bunchOfGames = [];
+    this.bunchOfGame = [];
     
    }
-  
-  ngOnInit(): void {
-    this.GamesService.getContentObs().subscribe(gamesArray => this.bunchOfGames = gamesArray);
-    this.GamesService.getContentGames(2).subscribe(favouritegames => {
-      this.singleItem = favouritegames;
+   ngOnInit(): void {
+    this.getGameFromServer();
+  }
+
+  getGameFromServer(): void{
+    this.GamesService.getContent().subscribe(gameArray => this.bunchOfGame = gameArray);
+  }
+
+  addGameToList(newGameFromChild: Content): void {
+    this.GamesService.addContent(newGameFromChild).subscribe(newContentFromServer => {
+      console.log("New content from server: ", newContentFromServer);
+     
+      this.bunchOfGame.push(newContentFromServer);
+      this.bunchOfGame = [...this.bunchOfGame]; 
+
     });
   }
 }

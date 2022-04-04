@@ -1,0 +1,34 @@
+<mat-form-field>
+    <mat-label>Title:</mat-label>
+    <input matInput placeholder="title" #title>
+</mat-form-field><br>
+<mat-form-field>
+    <mat-label>Description:</mat-label>
+    <input matInput placeholder="description" #description>
+</mat-form-field>
+<br><br>
+<mat-form-field>
+    <mat-label>Creator:</mat-label>
+    <input matInput placeholder="creator" #creator>
+</mat-form-field>
+<br><br>
+
+<mat-form-field>
+    <mat-label>Image URL:</mat-label>
+    <input matInput placeholder="https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202201181338" #imgURL>
+</mat-form-field>
+<br><br>
+<mat-form-field>
+    <mat-label>Type:</mat-label>
+    <input matInput placeholder="creator" #type>
+</mat-form-field>
+<br><br>
+<mat-form-field>
+    <mat-label>Tags:</mat-label>
+    <input matInput placeholder="creator" #tags>
+</mat-form-field>
+<br><br>
+<div>
+    <button mat-raised-button color="primary" (click)="addGame(title.value, description.value, creator.value, imgURL.value,type.value, tags.value)">Add New Content</button>
+
+</div>

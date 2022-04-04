@@ -6,6 +6,13 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { ContentfilterPipe } from './contentfilter.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./services/in-memory-data.service";
+import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -13,12 +20,22 @@ import { HoverAffectDirective } from './hover-affect.directive';
     ContentCardComponent,
     ContentListComponent,
     ContentfilterPipe,
-    HoverAffectDirective
+    HoverAffectDirective,
+    ModifyContentComponentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 500
+    }),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
+  entryComponents: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
