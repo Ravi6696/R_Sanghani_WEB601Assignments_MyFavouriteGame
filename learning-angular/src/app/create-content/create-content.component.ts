@@ -25,7 +25,7 @@ export class CreateContentComponent implements OnInit {
     let gamePromise = new Promise((success, fail) => {
       if (!this.tempId || !this.newContent.title || !this.newContent.description || !this.newContent.creator)
       {
-        fail("something is missing");
+        fail("please add contnet again. required field is missing");
         return;
       }
       // part of the promise
