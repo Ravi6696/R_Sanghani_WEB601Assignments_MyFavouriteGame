@@ -75,18 +75,18 @@ export class ContentListComponent implements OnInit {
   checkForTitle(searchValue: string): void{
     let searchList = this.gamesList.filter(c => c.title == searchValue);
     if (searchList.length > 0){
-      this.searchMessage  = "Found the movie!";
+      this.searchMessage  = "Found the game!";
       this.searchFlag = true;
     }
     else{
-      this.searchMessage  = "No movie with that title";
+      this.searchMessage  = "No game with that title";
       this.searchFlag = false;
     }
   }
   addContentToParent(contentFromChild: Content) {
     console.log("got to the parent", contentFromChild);
     this.gamesList.push(contentFromChild);
-    console.log("what's actually in the movie list? ", this.gamesList);
+    console.log("game list? ", this.gamesList);
     this.gamesList = [...this.gamesList]; 
   }
 
