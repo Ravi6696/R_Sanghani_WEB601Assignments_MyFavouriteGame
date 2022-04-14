@@ -45,7 +45,7 @@ export class CreateContentComponent implements OnInit {
       this.tempTags = ""
       this.errorMessage = "";
     }).catch(failMessage => {
-      this.errorMessage = "It failed terribly! - " + failMessage;
+      this.errorMessage =  failMessage;
     });
   }
 
