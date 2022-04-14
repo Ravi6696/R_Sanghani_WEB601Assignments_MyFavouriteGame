@@ -1,3 +1,4 @@
+<app-create-content (newContentEvent)="addContentToParent($event)"></app-create-content>\
 <div class="search">
     <input #search>
     <button (click)="checkForTitle(search.value)">Check For Title</button>
@@ -6,16 +7,16 @@
   
   </div>
   
-  <app-content-card *ngFor="let item of (gamesList | contentTypeFilter); first as isFirstGamesOnList" [class.first-games]="isFirstGamesOnList"
-      [games]="item" class="notype" [class.found]="item.title == search.value"></app-content-card>
+  <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstGamesOnList || isLast" *ngFor="let item of (gamesList | contentTypeFilter); first as isFirstGamesOnList; last as isLast" [class.first-games]="isFirstGamesOnList"
+      [games]="item" class="notype" [class.first-game]="isFirstGamesOnList" [class.found]="item.title == search.value"></app-content-card>
   
-  <app-content-card *ngFor="let item of (gamesList | contentTypeFilter: 'Outdoor'); first as isFirstGamesOnList" [class.first-games]="isFirstGamesOnList"
-                    [games]="item" class="Outdoor" [class.found]="item.title == search.value"></app-content-card>
+  <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstGamesOnList || isLast" *ngFor="let item of (gamesList | contentTypeFilter: 'Outdoor'); first as isFirstGamesOnList; last as isLast" [class.first-games]="isFirstGamesOnList"
+  [class.first-game]="isFirstGamesOnList" [games]="item" class="Outdoor" [class.found]="item.title == search.value"></app-content-card>
   
-  <app-content-card *ngFor="let item of (gamesList | contentTypeFilter: 'Indoor'); first as isFirstGamesOnList" [class.first-games]="isFirstGamesOnList"
-                    [games]="item" class="Indoor" [class.found]="item.title == search.value"></app-content-card>
+  <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstGamesOnList || isLast" *ngFor="let item of (gamesList | contentTypeFilter: 'Indoor'); first as isFirstGamesOnList; last as isLast" [class.first-games]="isFirstGamesOnList"
+  [class.first-game]="isFirstGamesOnList" [games]="item" class="Indoor" [class.found]="item.title == search.value"></app-content-card>
   
-  
+
 
 
 
