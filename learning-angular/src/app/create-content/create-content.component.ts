@@ -25,10 +25,10 @@ export class CreateContentComponent implements OnInit {
     let gamePromise = new Promise((success, fail) => {
       if (!this.tempId || !this.newContent.title || !this.newContent.description || !this.newContent.creator)
       {
-        fail("please add contnet again. required field is missing");
+        fail("please add contnet again. required field");
         return;
       }
-      // part of the promise
+  
       console.log("child is working");
       this.newContent.tags = this.tempTags.split(';');
       this.newContent.id = parseInt(this.tempId);
