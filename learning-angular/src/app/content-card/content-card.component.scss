@@ -1,0 +1,54 @@
+:host {
+    display: block;
+    margin: 16px auto;
+    // padding: 8px;
+    width: 500px;
+    text-align: center;
+  
+    mat-card {
+      border: 1px solid #0000ff;
+  
+    }
+  
+    &.first-movie mat-card {
+      border: 6px solid #000;
+    }
+  
+    &.notype mat-card {
+      background-color: darksalmon;
+    }
+  
+    &.drama mat-card {
+      background-color: dodgerblue;
+    }
+  
+    &.sci-fi mat-card {
+      background-color: chartreuse;
+    }
+  
+    &.cartoon mat-card {
+      background-color: grey;
+    }
+  
+    &.found mat-card {
+      border-color: green;
+      border-width: 5px;
+    }
+  
+    &.single-item-on-app-component mat-card {
+      box-shadow: 5px 10px #88888899;
+    }
+  }
+  
+  .image {
+    width: 300px;
+  }
+  
+  .tag {
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #ff0000;
+    background-color: aqua;
+    margin: 8px;
+    padding: 8px;
+  }

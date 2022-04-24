@@ -5,7 +5,7 @@ import { GamesService } from '../services/games.service';
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
-  styleUrls: ['./content-list.component.css']
+  styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent implements OnInit {
 
@@ -16,20 +16,20 @@ export class ContentListComponent implements OnInit {
     
    }
    ngOnInit(): void {
-    this.getGameFromServer();
+    this.GamesService.getGameList().subscribe(list => {
+      this.bunchOfGame = list;
+    });
   }
 
-  getGameFromServer(): void{
-    this.GamesService.getContent().subscribe(gameArray => this.bunchOfGame = gameArray);
-  }
+  
 
-  addGameToList(newGameFromChild: Content): void {
-    this.GamesService.addContent(newGameFromChild).subscribe(newContentFromServer => {
-      console.log("New content from server: ", newContentFromServer);
-     
-      this.bunchOfGame.push(newContentFromServer);
-      this.bunchOfGame = [...this.bunchOfGame]; 
+  addContentToList(newContentItem: Content): void {
 
+
+    this.GamesService.getGameList().subscribe(list => {
+      this.bunchOfGame = list;
     });
   }
 }
+
+

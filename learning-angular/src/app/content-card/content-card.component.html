@@ -1,27 +1,24 @@
-<h3 class="title">
-    {{ games?.title }}
-</h3>
-
-<div *ngIf="games?.imgURL; else defaultimgurl">
-    <img  *ngIf="games?.imgURL" class="image" [src]="games?.imgURL">
-</div>
-
-<ng-template #defaultimgurl>
-    <img src="http://www.onlylondon.properties/application/modules/themes/views/default/assets/images/image-placeholder.png" style="height: 300px; width:300px;" >
-</ng-template>
-<p>
-    {{ games?.description }}
-</p>
-<div class="meta-data">
-    <div class="creator">
-        {{ games?.creator}}
-    </div>
-    <div *ngIf="games?.type" content-hover-affect underlinehovereffect="contenthoveraffect" class="games?.type">
-        <b>{{ games?.type }}</b>
-    </div>
-    <div class="tags" content-hover-affect underlinehovereffect="tagsbold" *ngIf="games?.tags">
-        <span class="tag" *ngFor="let tag of games?.tags">
-            #{{ tag }}
-        </span>
-    </div>
-</div>
+<mat-card *ngIf="games">
+    <mat-card-header>
+      <mat-card-title>{{ games?.title }} - {{ games?.creator }}</mat-card-title>
+      <mat-card-subtitle appHoverAffect elementType="type" *ngIf="games?.type" class="games?.type">
+        {{ games?.type }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image (click)="imageClicked()" *ngIf="games?.imgURL" class="image" [src]="games?.imgURL">
+    <img mat-card-image (click)="imageClicked()" *ngIf="!games?.imgURL" class="image"
+      src="http://www.onlylondon.properties/application/modules/themes/views/default/assets/images/image-placeholder.png">
+    <mat-card-content>
+      <p>
+        {{ games?.description }}
+      </p>
+      <mat-chip-list aria-label="Tags of the content" *ngIf="games?.tags">
+        <mat-chip appHoverAffect elementType="tag" *ngFor="let tag of games?.tags">
+          #{{ tag }}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <app-modify-content-component [newContent]="games"></app-modify-content-component>
+    </mat-card-actions>
+  </mat-card>
